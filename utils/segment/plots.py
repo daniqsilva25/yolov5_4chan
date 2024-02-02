@@ -38,7 +38,7 @@ def plot_images_and_masks(images, targets, masks, paths=None, fname='images.jpg'
             break
         x, y = int(w * (i // ns)), int(h * (i % ns))  # block origin
         im = im.transpose(1, 2, 0)
-        mosaic[y:y + h, x:x + w, :] = im
+        mosaic[y:y + h, x:x + w, :] = im[:, :, :3]
 
     # Resize (optional)
     scale = max_size / ns / max(h, w)
